@@ -52,20 +52,10 @@ Test your memory by playing the **_Memory Maze_** app. Play as a block and navig
    * Disappearing maze
 
 ### 3. Navigation
-
-**Tab Navigation** (Tab to Screen)
-
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
-
 **Flow Navigation** (Screen to Screen)
-
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
+* Main Menu
+   * Level Selection
+   * Skin Selection
    
 ### [BONUS] Screenshots of Application
 
