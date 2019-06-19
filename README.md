@@ -40,9 +40,16 @@ Test your memory by playing the **_Memory Maze_** app. Play as a block and navig
    * Two buttons
       * Start button
       * Change skin button
-* [list second screen here]
-   * [list associated required story here]
-   * ...
+* Level Selection Screen
+   * Collection View (?) of available levels
+   * Keeps track of completed levels
+   * Level progression
+* Skin Selection Screen
+   * Collection View (?) of available skins
+   * Button to change skin
+* Maze Screen
+   * One block user controls
+   * Disappearing maze
 
 ### 3. Navigation
 
