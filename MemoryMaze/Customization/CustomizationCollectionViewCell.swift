@@ -9,6 +9,7 @@
 import UIKit
 
 class CustomizationCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var skinLabel: UILabel!
     
+    @IBOutlet var skinImage: UIImageView!
+    @IBOutlet var skinLabel: UILabel!
 }

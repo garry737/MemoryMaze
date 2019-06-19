@@ -15,6 +15,10 @@
 		D4AB80E222B8EE70009BC363 /* CustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80E122B8EE70009BC363 /* CustomizationViewController.swift */; };
 		D4AB80E622B8EEE8009BC363 /* CustomizationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80E522B8EEE8009BC363 /* CustomizationCollectionViewCell.swift */; };
 		D4AB80EA22B8EFBE009BC363 /* CustomizationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80E922B8EFBE009BC363 /* CustomizationCollectionView.swift */; };
+		D4AB80F022B9C7E8009BC363 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80EF22B9C7E7009BC363 /* Skin.swift */; };
+		D4AB80F422B9F206009BC363 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80F322B9F206009BC363 /* MainMenuViewController.swift */; };
+		D4AB80F622BA133B009BC363 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80F522BA133B009BC363 /* LevelSelectViewController.swift */; };
+		D4AB80F822BA152F009BC363 /* LevelSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80F722BA152F009BC363 /* LevelSelectCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		D4AB80E122B8EE70009BC363 /* CustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationViewController.swift; sourceTree = "<group>"; };
 		D4AB80E522B8EEE8009BC363 /* CustomizationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4AB80E922B8EFBE009BC363 /* CustomizationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationCollectionView.swift; sourceTree = "<group>"; };
+		D4AB80EF22B9C7E7009BC363 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
+		D4AB80F322B9F206009BC363 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		D4AB80F522BA133B009BC363 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
+		D4AB80F722BA152F009BC363 /* LevelSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,7 @@
 				D4AB80E522B8EEE8009BC363 /* CustomizationCollectionViewCell.swift */,
 				D4AB80E122B8EE70009BC363 /* CustomizationViewController.swift */,
 				D4AB80E922B8EFBE009BC363 /* CustomizationCollectionView.swift */,
+				D4AB80EF22B9C7E7009BC363 /* Skin.swift */,
 			);
 			path = Customization;
 			sourceTree = "<group>";
@@ -87,6 +96,7 @@
 		D4AB80EC22B8F001009BC363 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
+				D4AB80F322B9F206009BC363 /* MainMenuViewController.swift */,
 			);
 			path = MainMenu;
 			sourceTree = "<group>";
@@ -94,6 +104,8 @@
 		D4AB80ED22B8F016009BC363 /* LevelSelect */ = {
 			isa = PBXGroup;
 			children = (
+				D4AB80F522BA133B009BC363 /* LevelSelectViewController.swift */,
+				D4AB80F722BA152F009BC363 /* LevelSelectCollectionViewCell.swift */,
 			);
 			path = LevelSelect;
 			sourceTree = "<group>";
@@ -177,8 +189,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4AB80E222B8EE70009BC363 /* CustomizationViewController.swift in Sources */,
+				D4AB80F622BA133B009BC363 /* LevelSelectViewController.swift in Sources */,
 				D4AB80D222B8EB09009BC363 /* ViewController.swift in Sources */,
+				D4AB80F022B9C7E8009BC363 /* Skin.swift in Sources */,
+				D4AB80F822BA152F009BC363 /* LevelSelectCollectionViewCell.swift in Sources */,
 				D4AB80EA22B8EFBE009BC363 /* CustomizationCollectionView.swift in Sources */,
+				D4AB80F422B9F206009BC363 /* MainMenuViewController.swift in Sources */,
 				D4AB80D022B8EB09009BC363 /* AppDelegate.swift in Sources */,
 				D4AB80E622B8EEE8009BC363 /* CustomizationCollectionViewCell.swift in Sources */,
 			);
