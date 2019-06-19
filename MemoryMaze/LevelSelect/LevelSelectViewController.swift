@@ -10,13 +10,11 @@ import UIKit
 
 class LevelSelectViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    
-
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
     
     var levels : [Int] = []
-    var dim : CGFloat = 0.0
+    var selectedLevel : Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +40,8 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LevelCell", for: indexPath) as! LevelSelectCollectionViewCell
         cell.levelLabel.text = String(levels[indexPath.row])
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 20;
         
         
@@ -60,7 +60,18 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(String(levels[indexPath.row]))
         print(CustomizationViewController.selected.name)
+        selectedLevel = levels[indexPath.row]
+        performSegue(withIdentifier: "LevelToGame", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "LevelToGame")
+        {
+            let gameVC = segue.destination as! GameViewController
+            gameVC.currentLevel = selectedLevel
+        }
+    }
+    
     
 
     /*

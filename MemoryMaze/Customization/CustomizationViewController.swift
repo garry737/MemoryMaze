@@ -15,7 +15,7 @@ class CustomizationViewController: UIViewController, UICollectionViewDataSource,
     
     var skins : [Skin] = []
     //Singleton - selected skin to use throughout the app
-    static var selected : Skin = Skin(name: "Red")
+    static var selected : Skin = Skin(name: "Blue")
     
     override func viewDidLoad() {
         super.viewDidLoad()

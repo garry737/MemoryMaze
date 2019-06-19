@@ -19,6 +19,7 @@
 		D4AB80F422B9F206009BC363 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80F322B9F206009BC363 /* MainMenuViewController.swift */; };
 		D4AB80F622BA133B009BC363 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80F522BA133B009BC363 /* LevelSelectViewController.swift */; };
 		D4AB80F822BA152F009BC363 /* LevelSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80F722BA152F009BC363 /* LevelSelectCollectionViewCell.swift */; };
+		D4AB80FC22BA2E38009BC363 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80FB22BA2E38009BC363 /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D4AB80F322B9F206009BC363 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		D4AB80F522BA133B009BC363 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 		D4AB80F722BA152F009BC363 /* LevelSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectCollectionViewCell.swift; sourceTree = "<group>"; };
+		D4AB80FB22BA2E38009BC363 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		D4AB80EE22B8F020009BC363 /* MazeGame */ = {
 			isa = PBXGroup;
 			children = (
+				D4AB80FB22BA2E38009BC363 /* GameViewController.swift */,
 			);
 			path = MazeGame;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4AB80FC22BA2E38009BC363 /* GameViewController.swift in Sources */,
 				D4AB80E222B8EE70009BC363 /* CustomizationViewController.swift in Sources */,
 				D4AB80F622BA133B009BC363 /* LevelSelectViewController.swift in Sources */,
 				D4AB80D222B8EB09009BC363 /* ViewController.swift in Sources */,
