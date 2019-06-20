@@ -12,9 +12,12 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet var selectLevelLabel: UILabel!
     
     var levels : [Int] = []
     var selectedLevel : Int = -1
+    var levelFontSize : CGFloat = 40
+    var selectLevelFontSize : CGFloat = 40
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +32,13 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         //no space between collectionview cells
         flowLayout.minimumLineSpacing = 20
         flowLayout.minimumInteritemSpacing = 20
-
+        
+        let screenSize = UIScreen.main.bounds
+        
+        selectLevelFontSize = (screenSize.width/8)
+        selectLevelLabel.font = UIFont(name: selectLevelLabel.font.fontName, size: selectLevelFontSize)
+        print(selectLevelFontSize)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -40,12 +49,21 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LevelCell", for: indexPath) as! LevelSelectCollectionViewCell
         cell.levelLabel.text = String(levels[indexPath.row])
+        cell.levelLabel.adjustsFontSizeToFitWidth = true
+        
+        levelFontSize = (collectionView.bounds.width/3 - 20)/3 + 5
+        cell.levelLabel.font = UIFont(name: cell.levelLabel.font.fontName, size: levelFontSize)
+        
         cell.layer.borderColor = UIColor.white.cgColor
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 20;
         
         
         return cell
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -62,6 +80,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         print(CustomizationViewController.selected.name)
         selectedLevel = levels[indexPath.row]
         performSegue(withIdentifier: "LevelToGame", sender: self)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
