@@ -34,7 +34,6 @@ class GameViewController: UIViewController {
         
         let screenSize = UIScreen.main.bounds
         
-        mazeScreenWidthConstraint.constant = screenSize.width - (screenSize.width/4)
         mazeScreen.layoutIfNeeded()
         
         self.drawMaze()
