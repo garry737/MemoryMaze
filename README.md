@@ -18,20 +18,21 @@ Test your memory by playing the **_Memory Maze_** app. Play as a block and navig
 
 ## Product Spec
 ### 1. User Stories
-
 **Required Must-have Stories**
-* [ ] Select Level
-* [ ] Save level progress
-* [ ] Move block
-* [ ] Win/lose game
-* [ ] Customize block skin
-* [ ] Animations
+* [x] Select Level
+* [x] Move block
+* [x] Win/lose game
+* [x] Customize block skin
+* [x] Self adjusting maze sizes
 
 **Optional BONUS Stories**
-* [ ] Different maze sizes
+* [ ] Save level progress
+* [ ] Animations
 
 **Potential Future Nice-to-have Stories**
 * [ ] In app purchases for skins
+* [ ] Randomized maze or daily maze
+* [ ] Maze builder
 
 ### 2. Screen Archetypes
 * Main Menu Screen
@@ -41,11 +42,11 @@ Test your memory by playing the **_Memory Maze_** app. Play as a block and navig
       * Start button
       * Change skin button
 * Level Selection Screen
-   * Collection View (?) of available levels
+   * Collection View of available levels
    * Keeps track of completed levels
    * Level progression
 * Skin Selection Screen
-   * Collection View (?) of available skins
+   * Collection View of available skins
    * Button to change skin
 * Maze Screen
    * One block user controls
@@ -55,11 +56,12 @@ Test your memory by playing the **_Memory Maze_** app. Play as a block and navig
 **Flow Navigation** (Screen to Screen)
 * Main Menu
    * Level Selection
+      * Game Level Screen
    * Skin Selection
    
 ### [BONUS] Screenshots of Application
 
-### [BONUS] GIFs if Application
+### [BONUS] GIFs of Application
 
 ## Schema 
 [This section will be completed in Unit 9]
