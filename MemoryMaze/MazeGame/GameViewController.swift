@@ -21,7 +21,11 @@ class GameViewController: UIViewController {
     @IBOutlet var downButton: UIButton!
     
     var blockImage : UIImageView = UIImageView(image: UIImage(named: "Red"))
+    var maze : [UIImageView] = []
     var currentCoords : (Float,Float) = (0.0,0.0)
+    var mazecoords : [(Int,Int)] = [(2,0),(0,1),(2,1),(0,2),(2,2),(0,3),(2,3),(0,4),(2,4),(0,5),(2,5),(0,6),(2,6),(3,6),(4,6),(5,6),(0,7),(5,7),(0,8),(1,8),(2,8),(3,8),(5,8),(3,9),(5,9)]
+    var endPoints : [(Int,Int)] = [(0,0),(4,9)]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +36,15 @@ class GameViewController: UIViewController {
         mazeScreenWidthConstraint.constant = screenSize.width - (screenSize.width/4)
         mazeScreen.layoutIfNeeded()
         
-        let image = CustomizationViewController.selected.image
-        blockImage = UIImageView(image: image)
+        self.drawMaze()
+        self.drawEndPoints()
+        
+        blockImage = UIImageView(image: CustomizationViewController.selected.image)
         blockImage.frame = CGRect(x: 0, y: 0, width: mazeScreen.frame.height/10, height: mazeScreen.frame.height/10)
         print(blockImage.frame.height)
+        print("blockImage frame origin x = \(blockImage.frame.origin.x)")
+        print("blockImage frame origin y = \(blockImage.frame.origin.y)")
+        
         mazeScreen.addSubview(blockImage)
         
         upButton.frame.size = CGSize(width: 25, height: 25)
@@ -64,29 +73,81 @@ class GameViewController: UIViewController {
         downButton.contentMode = .center
         downButton.imageView?.contentMode = .scaleAspectFit
         
+        
+        
     }
     
     @IBAction func upButtonPressed(_ sender: Any) {
         print("up")
-        blockImage.frame.origin.y -= blockImage.frame.height
+        if (blockImage.frame.origin.y >= blockImage.frame.height - 0.1){
+            blockImage.frame.origin.y -= blockImage.frame.height
+        } else {
+            print("WALLED")
+        }
+//        print("blockImage frame origin x = \(blockImage.frame.origin.x)")
+//        print("blockImage frame origin y = \(blockImage.frame.origin.y)")
+//        print("blockImage frame height = \(blockImage.frame.height)")
     }
     
     @IBAction func rightButtonPressed(_ sender: Any) {
         print("right")
-        blockImage.frame.origin.x += blockImage.frame.height
+        if (blockImage.frame.origin.x <= mazeScreen.frame.width - blockImage.frame.width-0.1){
+            blockImage.frame.origin.x += blockImage.frame.width
+        } else {
+            print("WALLED")
+        }
+//        print("blockImage frame origin x = \(blockImage.frame.origin.x)")
+//        print("blockImage frame origin y = \(blockImage.frame.origin.y)")
+//        print("mazeScreen frame width = \(mazeScreen.frame.width)")
+//        print("blockImage frame width = \(blockImage.frame.height)")
     }
     
     @IBAction func downButtonPressed(_ sender: Any) {
         print("down")
-        blockImage.frame.origin.y += blockImage.frame.height
+        if (blockImage.frame.origin.y <= mazeScreen.frame.height - blockImage.frame.height-0.1){
+            blockImage.frame.origin.y += blockImage.frame.height
+        } else {
+            print("WALLED")
+        }
+//        print("blockImage frame origin x = \(blockImage.frame.origin.x)")
+//        print("blockImage frame origin y = \(blockImage.frame.origin.y)")
     }
     
     @IBAction func leftButtonPressed(_ sender: Any) {
         print("left")
-        blockImage.frame.origin.x -= blockImage.frame.height
+        if (blockImage.frame.origin.x >= blockImage.frame.width - 0.1){
+            blockImage.frame.origin.x -= blockImage.frame.width
+        } else {
+            print("WALLED")
+        }
+//        print("blockImage frame origin x = \(blockImage.frame.origin.x)")
+//        print("blockImage frame origin y = \(blockImage.frame.origin.y)")
     }
     
-    
+    func drawMaze(){
+        var mazeImage = UIImageView(image: UIImage(named: "MazeYellow"))
+        let inc = Double(mazeScreen.frame.height/10)
+        
+        for coords in mazecoords {
+            mazeImage = UIImageView(image: UIImage(named: "MazeYellow"))
+            mazeImage.frame = CGRect(x: round(1000.0 * (Double(coords.0) * inc)) / 1000.0, y: round(1000.0 * (Double(coords.1) * inc)) / 1000.0, width: inc, height: inc)
+            maze.append(mazeImage)
+            
+        for mazeBlock in maze {
+            mazeScreen.addSubview(mazeBlock)
+        }
+        }
+    }
+
+    func drawEndPoints(){
+        let inc = Double(mazeScreen.frame.height/10)
+        let startPoint = UIImageView(image: UIImage(named: "Red"))
+        startPoint.frame = CGRect(x: round(1000.0 * (Double(endPoints[0].0) * inc)) / 1000.0, y: round(1000.0 * (Double(endPoints[0].1) * inc)) / 1000.0, width: inc, height: inc)
+        let endPoint = UIImageView(image: UIImage(named: "Green"))
+        endPoint.frame = CGRect(x: round(1000.0 * (Double(endPoints[1].0) * inc)) / 1000.0, y: round(1000.0 * (Double(endPoints[1].1) * inc)) / 1000.0, width: inc, height: inc)
+        mazeScreen.addSubview(startPoint)
+        mazeScreen.addSubview(endPoint)
+    }
 }
 
 

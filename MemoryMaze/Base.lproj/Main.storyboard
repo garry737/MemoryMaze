@@ -170,7 +170,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2l-ol-WPc">
                                 <rect key="frame" x="45" y="77" width="324" height="324"/>
-                                <color key="backgroundColor" red="1" green="0.72804958600000003" blue="0.89931266889999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="324" id="40z-zW-Fbq"/>
                                     <constraint firstAttribute="width" secondItem="p2l-ol-WPc" secondAttribute="height" multiplier="1:1" id="NbX-Yd-nAX"/>
