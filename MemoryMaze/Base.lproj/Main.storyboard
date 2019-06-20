@@ -161,7 +161,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Km-hl-E5L">
-                                <rect key="frame" x="127.5" y="49" width="159.5" height="78.5"/>
+                                <rect key="frame" x="127.5" y="49" width="159.5" height="57"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
                                 <color key="textColor" red="0.98431372549999996" green="0.7725490196" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -169,16 +169,16 @@
                                 <size key="shadowOffset" width="5" height="3"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2l-ol-WPc">
-                                <rect key="frame" x="52" y="142.5" width="310.5" height="310.5"/>
+                                <rect key="frame" x="52" y="121" width="310.5" height="310.5"/>
                                 <color key="backgroundColor" red="0.18070730569999999" green="0.1991109848" blue="0.23530137540000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="p2l-ol-WPc" secondAttribute="height" multiplier="1:1" id="NbX-Yd-nAX"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFm-5K-Mit">
-                                <rect key="frame" x="57" y="503" width="300" height="300"/>
+                                <rect key="frame" x="12" y="451.5" width="390.5" height="390.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YJr-dA-T3o">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YJr-dA-T3o">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EN4-a4-BAv">
@@ -261,24 +261,20 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="YJr-dA-T3o" secondAttribute="bottom" id="4Ln-bT-5bb"/>
-                                    <constraint firstAttribute="trailing" secondItem="YJr-dA-T3o" secondAttribute="trailing" id="5Yw-5w-eFT"/>
                                     <constraint firstAttribute="width" secondItem="DFm-5K-Mit" secondAttribute="height" multiplier="1:1" id="DD9-GK-nlT"/>
-                                    <constraint firstItem="YJr-dA-T3o" firstAttribute="leading" secondItem="DFm-5K-Mit" secondAttribute="leading" id="NZJ-Bt-g2U"/>
-                                    <constraint firstItem="YJr-dA-T3o" firstAttribute="top" secondItem="DFm-5K-Mit" secondAttribute="top" id="zXf-6K-RKM"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.18070730569999999" green="0.1991109848" blue="0.23530137540000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="DFm-5K-Mit" firstAttribute="top" secondItem="p2l-ol-WPc" secondAttribute="bottom" constant="50" id="6cZ-cQ-oS0"/>
                             <constraint firstItem="p2l-ol-WPc" firstAttribute="width" secondItem="gXZ-s3-OqG" secondAttribute="width" multiplier="0.75" priority="999" id="7rp-v7-PNJ"/>
+                            <constraint firstItem="15d-A7-a85" firstAttribute="bottom" secondItem="DFm-5K-Mit" secondAttribute="bottom" constant="20" id="MyD-04-syX"/>
                             <constraint firstItem="3Km-hl-E5L" firstAttribute="top" secondItem="15d-A7-a85" secondAttribute="top" constant="5" id="TQB-qM-SBx"/>
                             <constraint firstItem="3Km-hl-E5L" firstAttribute="centerX" secondItem="gXZ-s3-OqG" secondAttribute="centerX" id="UiZ-1m-Bjl"/>
-                            <constraint firstItem="p2l-ol-WPc" firstAttribute="top" secondItem="3Km-hl-E5L" secondAttribute="bottom" constant="15" id="cQ9-Zk-j2e"/>
+                            <constraint firstItem="p2l-ol-WPc" firstAttribute="top" secondItem="3Km-hl-E5L" secondAttribute="bottom" priority="999" constant="15" id="cQ9-Zk-j2e"/>
                             <constraint firstItem="p2l-ol-WPc" firstAttribute="centerX" secondItem="gXZ-s3-OqG" secondAttribute="centerX" id="gM6-wh-ug1"/>
                             <constraint firstItem="DFm-5K-Mit" firstAttribute="centerX" secondItem="gXZ-s3-OqG" secondAttribute="centerX" id="kuq-gI-Q3E"/>
-                            <constraint firstItem="15d-A7-a85" firstAttribute="centerY" secondItem="p2l-ol-WPc" secondAttribute="bottom" id="qAo-Ua-hJv"/>
+                            <constraint firstItem="DFm-5K-Mit" firstAttribute="top" secondItem="p2l-ol-WPc" secondAttribute="bottom" constant="20" id="zas-px-pbG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="15d-A7-a85"/>
                     </view>
