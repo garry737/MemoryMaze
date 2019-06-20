@@ -60,7 +60,8 @@ Test your memory by playing the **_Memory Maze_** app. Play as a block and navig
    * Skin Selection
    
 ### [BONUS] Screenshots of Application
-
+[Level Selection Screen](https://imgur.com/DsJyOrx)
+[Maze Game](https://imgur.com/rpm39ic)
 ### [BONUS] GIFs of Application
 
 ## Schema 
