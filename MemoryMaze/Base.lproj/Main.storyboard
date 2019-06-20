@@ -178,8 +178,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFm-5K-Mit">
                                 <rect key="frame" x="12" y="451.5" width="390.5" height="390.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YJr-dA-T3o">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YJr-dA-T3o">
+                                        <rect key="frame" x="45" y="45.5" width="300" height="300"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EN4-a4-BAv">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
@@ -262,6 +262,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DFm-5K-Mit" secondAttribute="height" multiplier="1:1" id="DD9-GK-nlT"/>
+                                    <constraint firstItem="YJr-dA-T3o" firstAttribute="centerY" secondItem="DFm-5K-Mit" secondAttribute="centerY" id="E7D-2o-Wgd"/>
+                                    <constraint firstItem="YJr-dA-T3o" firstAttribute="centerX" secondItem="DFm-5K-Mit" secondAttribute="centerX" id="S0b-xC-NMs"/>
                                 </constraints>
                             </view>
                         </subviews>
