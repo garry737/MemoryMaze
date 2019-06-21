@@ -14,7 +14,6 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet var selectLevelLabel: UILabel!
     
-    var levels : [Int] = []
     var selectedLevel : Maze = Maze()
     var levelFontSize : CGFloat = 40
     var selectLevelFontSize : CGFloat = 40
@@ -24,9 +23,6 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         super.viewDidLoad()
         
 //        dim = collectionView.bounds.width/12
-        
-        levels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -76,9 +72,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         return CGSize(width: yourWidth, height: yourHeight)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(String(levels[indexPath.row]))
-        print(CustomizationViewController.selected.name)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        print(CustomizationViewController.selected.name)
         selectedLevel = mazeLevel.mazes[indexPath.row]
         performSegue(withIdentifier: "LevelToGame", sender: self)
         

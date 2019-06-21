@@ -12,6 +12,7 @@ class GameViewController: UIViewController {
     
     var currentLevel : Maze = Maze()
     var moveFlag = true
+    var path = ""
 
     @IBOutlet var gameLevelLabel: UILabel!
     @IBOutlet var mazeScreen: UIView!
@@ -81,8 +82,19 @@ class GameViewController: UIViewController {
         } else {
             print("WALLED")
         }
-        print("blockImage frame origin x = \(round(blockImage.frame.origin.x/blockImage.frame.width))")
-        print("blockImage frame origin y = \(round(blockImage.frame.origin.y/blockImage.frame.width))")
+//        print("blockImage frame origin x = \(round(blockImage.frame.origin.x/blockImage.frame.width))")
+//        print("blockImage frame origin y = \(round(blockImage.frame.origin.y/blockImage.frame.width))")
+        
+        let x = String(Int(round(blockImage.frame.origin.x/blockImage.frame.width)))
+        let y = String(Int(round(blockImage.frame.origin.y/blockImage.frame.width)))
+        
+        path += "("
+        path += x
+        path += ","
+        path += y
+        path += "),"
+        
+        
         checkCollision(x: Double(round(blockImage.frame.origin.x/blockImage.frame.width)), y: Double(round(blockImage.frame.origin.y/blockImage.frame.width)))
 //        print("blockImage frame height = \(blockImage.frame.height)")
     }
@@ -94,9 +106,18 @@ class GameViewController: UIViewController {
         } else {
             print("WALLED")
         }
-        print("blockImage frame origin x = \(round(blockImage.frame.origin.x/blockImage.frame.width))")
-        print("blockImage frame origin y = \(round(blockImage.frame.origin.y/blockImage.frame.width))")
+//        print("blockImage frame origin x = \(round(blockImage.frame.origin.x/blockImage.frame.width))")
+//        print("blockImage frame origin y = \(round(blockImage.frame.origin.y/blockImage.frame.width))")
         checkCollision(x: Double(round(blockImage.frame.origin.x/blockImage.frame.width)), y: Double(round(blockImage.frame.origin.y/blockImage.frame.width)))
+        
+        let x = String(Int(round(blockImage.frame.origin.x/blockImage.frame.width)))
+        let y = String(Int(round(blockImage.frame.origin.y/blockImage.frame.width)))
+        
+        path += "("
+        path += x
+        path += ","
+        path += y
+        path += "),"
 //        print("mazeScreen frame width = \(mazeScreen.frame.width)")
 //        print("blockImage frame width = \(blockImage.frame.height)")
     }
@@ -109,10 +130,18 @@ class GameViewController: UIViewController {
             print("WALLED")
         }
         
-        print("blockImage frame origin x = \(round(blockImage.frame.origin.x/blockImage.frame.width))")
-        print("blockImage frame origin y = \(round(blockImage.frame.origin.y/blockImage.frame.width))")
+//        print("blockImage frame origin x = \(round(blockImage.frame.origin.x/blockImage.frame.width))")
+//        print("blockImage frame origin y = \(round(blockImage.frame.origin.y/blockImage.frame.width))")
         checkCollision(x: Double(round(blockImage.frame.origin.x/blockImage.frame.width)), y: Double(round(blockImage.frame.origin.y/blockImage.frame.width)))
         
+        let x = String(Int(round(blockImage.frame.origin.x/blockImage.frame.width)))
+        let y = String(Int(round(blockImage.frame.origin.y/blockImage.frame.width)))
+        
+        path += "("
+        path += x
+        path += ","
+        path += y
+        path += "),"
     }
     
     @IBAction func leftButtonPressed(_ sender: Any) {
@@ -122,9 +151,18 @@ class GameViewController: UIViewController {
         } else {
             print("WALLED")
         }
-        print("blockImage frame origin x = \(round(blockImage.frame.origin.x/blockImage.frame.width))")
-        print("blockImage frame origin y = \(round(blockImage.frame.origin.y/blockImage.frame.width))")
+//        print("blockImage frame origin x = \(round(blockImage.frame.origin.x/blockImage.frame.width))")
+//        print("blockImage frame origin y = \(round(blockImage.frame.origin.y/blockImage.frame.width))")
         checkCollision(x: Double(round(blockImage.frame.origin.x/blockImage.frame.width)), y: Double(round(blockImage.frame.origin.y/blockImage.frame.width)))
+        
+        let x = String(Int(round(blockImage.frame.origin.x/blockImage.frame.width)))
+        let y = String(Int(round(blockImage.frame.origin.y/blockImage.frame.width)))
+        
+        path += "("
+        path += x
+        path += ","
+        path += y
+        path += "),"
     }
     
     func drawMaze(){
@@ -159,6 +197,7 @@ class GameViewController: UIViewController {
         if currentCoord == currentLevel.end{
                 print("WINNERRR")
             let alert = UIAlertController(title: "Congratulations, You Won!", message: "You have completed this level", preferredStyle: UIAlertController.Style.alert)
+            print(path)
             
             // add an action (button)
             alert.addAction(UIAlertAction(title: "Back To Level Selection", style: UIAlertAction.Style.default, handler: { action in
