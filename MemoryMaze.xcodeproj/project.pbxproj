@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4912B6922BC79490071ADB4 /* Maze.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4912B6822BC79490071ADB4 /* Maze.swift */; };
+		D4912B6B22BC795A0071ADB4 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4912B6A22BC795A0071ADB4 /* Maps.swift */; };
 		D4AB80D022B8EB09009BC363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80CF22B8EB09009BC363 /* AppDelegate.swift */; };
 		D4AB80D222B8EB09009BC363 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB80D122B8EB09009BC363 /* ViewController.swift */; };
 		D4AB80D522B8EB09009BC363 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4AB80D322B8EB09009BC363 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D4912B6822BC79490071ADB4 /* Maze.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maze.swift; sourceTree = "<group>"; };
+		D4912B6A22BC795A0071ADB4 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
 		D4AB80CC22B8EB09009BC363 /* MemoryMaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryMaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AB80CF22B8EB09009BC363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4AB80D122B8EB09009BC363 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +55,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4912B6722BC78030071ADB4 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4912B6822BC79490071ADB4 /* Maze.swift */,
+				D4912B6A22BC795A0071ADB4 /* Maps.swift */,
+				D4AB80EF22B9C7E7009BC363 /* Skin.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		D4AB80C322B8EB09009BC363 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +94,7 @@
 				D4AB80EC22B8F001009BC363 /* MainMenu */,
 				D4AB80EE22B8F020009BC363 /* MazeGame */,
 				D4AB80EB22B8EFE6009BC363 /* Customization */,
+				D4912B6722BC78030071ADB4 /* View Models */,
 			);
 			path = MemoryMaze;
 			sourceTree = "<group>";
@@ -90,7 +105,6 @@
 				D4AB80E522B8EEE8009BC363 /* CustomizationCollectionViewCell.swift */,
 				D4AB80E122B8EE70009BC363 /* CustomizationViewController.swift */,
 				D4AB80E922B8EFBE009BC363 /* CustomizationCollectionView.swift */,
-				D4AB80EF22B9C7E7009BC363 /* Skin.swift */,
 			);
 			path = Customization;
 			sourceTree = "<group>";
@@ -192,6 +206,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4AB80FC22BA2E38009BC363 /* GameViewController.swift in Sources */,
+				D4912B6922BC79490071ADB4 /* Maze.swift in Sources */,
+				D4912B6B22BC795A0071ADB4 /* Maps.swift in Sources */,
 				D4AB80E222B8EE70009BC363 /* CustomizationViewController.swift in Sources */,
 				D4AB80F622BA133B009BC363 /* LevelSelectViewController.swift in Sources */,
 				D4AB80D222B8EB09009BC363 /* ViewController.swift in Sources */,

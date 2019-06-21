@@ -15,9 +15,10 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet var selectLevelLabel: UILabel!
     
     var levels : [Int] = []
-    var selectedLevel : Int = -1
+    var selectedLevel : Maze = Maze()
     var levelFontSize : CGFloat = 40
     var selectLevelFontSize : CGFloat = 40
+    var mazeLevel : Maps = Maps()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +44,12 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return levels.count
+        return mazeLevel.mazes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LevelCell", for: indexPath) as! LevelSelectCollectionViewCell
-        cell.levelLabel.text = String(levels[indexPath.row])
+        cell.levelLabel.text = String(mazeLevel.mazes[indexPath.row].number)
         cell.levelLabel.adjustsFontSizeToFitWidth = true
         
         levelFontSize = (collectionView.bounds.width/3 - 20)/3 + 5
@@ -78,7 +79,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(String(levels[indexPath.row]))
         print(CustomizationViewController.selected.name)
-        selectedLevel = levels[indexPath.row]
+        selectedLevel = mazeLevel.mazes[indexPath.row]
         performSegue(withIdentifier: "LevelToGame", sender: self)
         
     }

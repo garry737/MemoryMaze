@@ -10,12 +10,11 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    var currentLevel : Int = -1
+    var currentLevel : Maze = Maze()
     var moveFlag = true
 
     @IBOutlet var gameLevelLabel: UILabel!
     @IBOutlet var mazeScreen: UIView!
-    @IBOutlet var mazeScreenWidthConstraint: NSLayoutConstraint!
     @IBOutlet var upButton: UIButton!
     @IBOutlet var rightButton: UIButton!
     @IBOutlet var leftButton: UIButton!
@@ -23,16 +22,10 @@ class GameViewController: UIViewController {
     
     var blockImage : UIImageView = UIImageView(image: UIImage(named: "Red"))
     var maze : [UIImageView] = []
-    var currentCoords : (Float,Float) = (0.0,0.0)
-    var mazecoords : [(Int,Int)] = [(2,0),(0,1),(2,1),(0,2),(2,2),(0,3),(2,3),(0,4),(2,4),(0,5),(2,5),(0,6),(2,6),(3,6),(4,6),(5,6),(0,7),(5,7),(0,8),(1,8),(2,8),(3,8),(5,8),(3,9),(5,9)]
-    var endPoints : [(Int,Int)] = [(0,0),(4,9)]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameLevelLabel.text = "Level \(currentLevel)"
-        
-        let screenSize = UIScreen.main.bounds
+        gameLevelLabel.text = "Level \(currentLevel.number)"
         
         mazeScreen.layoutIfNeeded()
         
@@ -41,7 +34,7 @@ class GameViewController: UIViewController {
         
         let inc = Double(mazeScreen.frame.height/10)
         blockImage = UIImageView(image: CustomizationViewController.selected.image)
-        blockImage.frame = CGRect(x: round(1000.0 * (Double(endPoints[0].0) * inc)) / 1000.0, y: round(1000.0 * (Double(endPoints[0].1) * inc)) / 1000.0, width: inc, height: inc)
+        blockImage.frame = CGRect(x: round(1000.0 * (Double(currentLevel.start.0) * inc)) / 1000.0, y: round(1000.0 * (Double(currentLevel.start.1) * inc)) / 1000.0, width: inc, height: inc)
         print(blockImage.frame.height)
         print("blockImage frame origin x = \(blockImage.frame.origin.x)")
         print("blockImage frame origin y = \(blockImage.frame.origin.y)")
@@ -139,7 +132,7 @@ class GameViewController: UIViewController {
         var mazeImage = UIImageView(image: UIImage(named: "MazeYellow"))
         let inc = Double(mazeScreen.frame.height/10)
         
-        for coords in mazecoords {
+        for coords in currentLevel.walls {
             mazeImage = UIImageView(image: UIImage(named: "MazeYellow"))
             mazeImage.frame = CGRect(x: round(1000.0 * (Double(coords.0) * inc)) / 1000.0, y: round(1000.0 * (Double(coords.1) * inc)) / 1000.0, width: inc, height: inc)
             maze.append(mazeImage)
@@ -153,9 +146,9 @@ class GameViewController: UIViewController {
     func drawEndPoints(){
         let inc = Double(mazeScreen.frame.height/10)
         let startPoint = UIImageView(image: UIImage(named: "StartYellow"))
-        startPoint.frame = CGRect(x: round(1000.0 * (Double(endPoints[0].0) * inc)) / 1000.0, y: round(1000.0 * (Double(endPoints[0].1) * inc)) / 1000.0, width: inc, height: inc)
+        startPoint.frame = CGRect(x: round(1000.0 * (Double(currentLevel.start.0) * inc)) / 1000.0, y: round(1000.0 * (Double(currentLevel.start.1) * inc)) / 1000.0, width: inc, height: inc)
         let endPoint = UIImageView(image: UIImage(named: "FlagYellow"))
-        endPoint.frame = CGRect(x: round(1000.0 * (Double(endPoints[1].0) * inc)) / 1000.0, y: round(1000.0 * (Double(endPoints[1].1) * inc)) / 1000.0, width: inc, height: inc)
+        endPoint.frame = CGRect(x: round(1000.0 * (Double(currentLevel.end.0) * inc)) / 1000.0, y: round(1000.0 * (Double(currentLevel.end.1) * inc)) / 1000.0, width: inc, height: inc)
         mazeScreen.addSubview(startPoint)
         mazeScreen.addSubview(endPoint)
     }
@@ -163,7 +156,7 @@ class GameViewController: UIViewController {
     @discardableResult func checkCollision(x : Double, y : Double) -> Bool{
         let currentCoord = (Int(x),Int(y))
         
-        if currentCoord == endPoints[1]{
+        if currentCoord == currentLevel.end{
                 print("WINNERRR")
             let alert = UIAlertController(title: "Congratulations, You Won!", message: "You have completed this level", preferredStyle: UIAlertController.Style.alert)
             
@@ -185,7 +178,7 @@ class GameViewController: UIViewController {
             return true
         }
 
-        for coords in mazecoords {
+        for coords in currentLevel.walls {
             if currentCoord == coords{
                 print("LOSERRR")
                 
@@ -216,8 +209,8 @@ class GameViewController: UIViewController {
     
     func resetMaze(){
         let inc = Double(self.mazeScreen.frame.height/10)
-        self.blockImage.frame.origin.x = CGFloat(round(1000.0 * (Double(self.endPoints[0].0) * inc))/1000)
-        self.blockImage.frame.origin.y = CGFloat(round(1000.0 * (Double(self.endPoints[0].1) * inc))/1000)
+        self.blockImage.frame.origin.x = CGFloat(round(1000.0 * (Double(self.currentLevel.start.0) * inc))/1000)
+        self.blockImage.frame.origin.y = CGFloat(round(1000.0 * (Double(self.currentLevel.start.1) * inc))/1000)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             print("Bye now")
