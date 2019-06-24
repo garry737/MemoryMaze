@@ -48,4 +48,6 @@ class Maze : Equatable{
         }
         return true
     }
+    
+    
 }

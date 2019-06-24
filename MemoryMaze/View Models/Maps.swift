@@ -29,4 +29,9 @@ class Maps{
     func completeMaze(m : Maze){
         self.progress = self.mazes.firstIndex(of: m)!
     }
+    
+    func nextMap(map : Maze) -> Maze{
+        let index = self.mazes.firstIndex(of: map) ?? 0
+        return self.mazes[index+1]
+    }
 }

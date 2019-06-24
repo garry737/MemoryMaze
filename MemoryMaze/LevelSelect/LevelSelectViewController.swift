@@ -129,6 +129,7 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
         {
             let gameVC = segue.destination as! GameViewController
             gameVC.currentLevel = selectedLevel
+            gameVC.allMaps = mazeLevel
         }
     }
     

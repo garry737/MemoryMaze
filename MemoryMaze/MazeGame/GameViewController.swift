@@ -23,6 +23,7 @@ class GameViewController: UIViewController {
     
     var blockImage : UIImageView = UIImageView(image: UIImage(named: "Red"))
     var maze : [UIImageView] = []
+    var allMaps : Maps = Maps()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,6 +170,7 @@ class GameViewController: UIViewController {
     
     func drawMaze(){
         moveFlag = false
+        maze = []
         var mazeImage = UIImageView(image: UIImage(named: "MazeYellow"))
         let inc = Double(mazeScreen.frame.height/10)
         
@@ -198,17 +200,33 @@ class GameViewController: UIViewController {
         
         if currentCoord == currentLevel.end{
                 print("WINNERRR")
-            let alert = UIAlertController(title: "Congratulations, You Won!", message: "You have completed this level", preferredStyle: UIAlertController.Style.alert)
+            currentLevel.completed = true
+            let alert = UIAlertController(title: "Congratulations, You Won!", message: "You have completed this level", preferredStyle: .alert)
             let defaults = UserDefaults.standard
             let x = defaults.object(forKey:"unlocked") as? Int ?? 0
             if x < currentLevel.number {defaults.set(currentLevel.number, forKey: "unlocked")}
             print(path)
             
             // add an action (button)
-            alert.addAction(UIAlertAction(title: "Back To Level Selection", style: UIAlertAction.Style.default, handler: { action in
+            alert.addAction(UIAlertAction(title: "Next Level", style: .default, handler: { action in
                 
-                // do something like...
-                print("Won")
+                print("Next Level")
+                self.currentLevel = self.allMaps.nextMap(map: self.currentLevel)
+                self.gameLevelLabel.text = "Level \(self.currentLevel.number)"
+                
+                for v in self.mazeScreen.subviews{
+                    v.removeFromSuperview()
+                }
+                
+                self.drawMaze()
+                self.drawEndPoints()
+                self.resetMaze()
+                
+                print(self.currentLevel.number)
+            }))
+            alert.addAction(UIAlertAction(title: "All Levels", style: .cancel, handler: { action in
+                
+                print("Won, back home")
 //                self.dismiss(animated: true, completion: nil)
                 self.navigationController?.popViewController(animated: true)
                 
@@ -255,6 +273,7 @@ class GameViewController: UIViewController {
         let inc = Double(self.mazeScreen.frame.height/10)
         self.blockImage.frame.origin.x = CGFloat(round(1000.0 * (Double(self.currentLevel.start.0) * inc))/1000)
         self.blockImage.frame.origin.y = CGFloat(round(1000.0 * (Double(self.currentLevel.start.1) * inc))/1000)
+        self.mazeScreen.addSubview(blockImage)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             print("Bye now")
