@@ -26,7 +26,7 @@ Test your memory by playing the **_Memory Maze_** app. Play as a block and navig
 * [x] Self adjusting maze sizes
 
 **Optional BONUS Stories**
-* [ ] Save level progress
+* [x] Save level progress
 * [ ] Animations
 
 **Potential Future Nice-to-have Stories**
