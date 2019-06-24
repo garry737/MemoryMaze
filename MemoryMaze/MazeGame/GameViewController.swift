@@ -33,8 +33,10 @@ class GameViewController: UIViewController {
         self.drawMaze()
         self.drawEndPoints()
         
+        let defaults = UserDefaults.standard
+        
         let inc = Double(mazeScreen.frame.height/10)
-        blockImage = UIImageView(image: CustomizationViewController.selected.image)
+        blockImage = UIImageView(image: MainMenuViewController.skins[defaults.object(forKey:"skin") as? Int ?? 0].image)
         blockImage.frame = CGRect(x: round(1000.0 * (Double(currentLevel.start.0) * inc)) / 1000.0, y: round(1000.0 * (Double(currentLevel.start.1) * inc)) / 1000.0, width: inc, height: inc)
         print(blockImage.frame.height)
         print("blockImage frame origin x = \(blockImage.frame.origin.x)")
@@ -197,6 +199,9 @@ class GameViewController: UIViewController {
         if currentCoord == currentLevel.end{
                 print("WINNERRR")
             let alert = UIAlertController(title: "Congratulations, You Won!", message: "You have completed this level", preferredStyle: UIAlertController.Style.alert)
+            let defaults = UserDefaults.standard
+            let x = defaults.object(forKey:"unlocked") as? Int ?? 0
+            if x < currentLevel.number {defaults.set(currentLevel.number, forKey: "unlocked")}
             print(path)
             
             // add an action (button)

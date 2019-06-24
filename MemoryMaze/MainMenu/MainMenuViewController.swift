@@ -28,6 +28,9 @@ class MainMenuViewController: UIViewController {
         Maze(number: 99999, start: (9,0), end: (3,4), walls: [])
         ])
     
+    //initialize the skins
+    static var skins : [Skin] = [Skin(name: "Blue"),Skin(name: "Green"),Skin(name: "Red"),Skin(name: "Pink"),Skin(name: "Purple"),Skin(name: "Brown"),Skin(name: "Grey"),Skin(name: "White")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,23 +39,26 @@ class MainMenuViewController: UIViewController {
 //        let screenWidth = screenSize.width
         
         changeSkinBottomConstraint.constant = screenHeight * 0.1
+        self.firstLaunch()
         
         
         
         // Do any additional setup after loading the view.
     }
     
-//    func firstLaunch()->Bool{
-//        let defaults = UserDefaults.standard
-//        if let _ = defaults.string(forKey: "firstLaunch"){
-//            print("App already launched")
-//            return false
-//        }else{
-//            defaults.set(false, forKey: "firstLaunch")
-//            print("App launched first time")
-//            return true
-//        }
-//    }
+    func firstLaunch()->Void{
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "firstLaunch"){
+            print("App already launched")
+            return
+        }else{
+            defaults.set(false, forKey: "firstLaunch")
+            defaults.set(0, forKey: "unlocked")
+            defaults.set(0, forKey: "skin")
+            print("App launched first time")
+            return
+        }
+    }
     
 //    static func initialMapGen() -> Maps{
 //        let defaults = UserDefaults.standard
