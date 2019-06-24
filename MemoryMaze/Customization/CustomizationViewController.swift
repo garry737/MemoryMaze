@@ -12,6 +12,7 @@ class CustomizationViewController: UIViewController, UICollectionViewDataSource,
     
     @IBOutlet var collectionView: CustomizationCollectionView!
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet var selectSkinLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -24,6 +25,9 @@ class CustomizationViewController: UIViewController, UICollectionViewDataSource,
         //no space between collectionview cells
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
+        
+        let screenSize = UIScreen.main.bounds
+        selectSkinLabel.font = UIFont(name: selectSkinLabel.font.fontName, size: (screenSize.width/8))
         
         
     }

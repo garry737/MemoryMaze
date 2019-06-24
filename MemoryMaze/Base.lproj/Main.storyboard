@@ -308,8 +308,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hEo-Gh-YfZ" customClass="CustomizationCollectionView" customModule="MemoryMaze" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
-                                <color key="backgroundColor" red="0.18857476115226746" green="0.21087726950645447" blue="0.24706622958183289" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="0.0" y="67" width="414" height="741"/>
+                                <color key="backgroundColor" red="0.18070730569999999" green="0.1991109848" blue="0.23530137540000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tw3-by-YGn">
                                     <size key="itemSize" width="257" height="322"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -340,13 +341,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="r7l-5O-Hhd" firstAttribute="top" secondItem="kup-Xa-DnC" secondAttribute="bottom" constant="5" id="o47-dm-n94"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.18431372549019609" green="0.21176470588235294" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.18070730569999999" green="0.1991109848" blue="0.23530137540000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="qs3-uW-WMW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Cf8-qp-Mxh" secondAttribute="topMargin" constant="10" id="0n9-Yb-wGQ"/>
                                             <constraint firstItem="qs3-uW-WMW" firstAttribute="centerY" secondItem="Cf8-qp-Mxh" secondAttribute="centerY" id="VCS-Q7-Wrf"/>
@@ -360,24 +358,36 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Skin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2N-jy-Qie">
+                                <rect key="frame" x="83.5" y="5" width="247.5" height="57"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
+                                <color key="textColor" red="0.98431372549999996" green="0.7725490196" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <size key="shadowOffset" width="5" height="3"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.18070730569999999" green="0.1991109848" blue="0.23530137540000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hEo-Gh-YfZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GZP-bV-t4F"/>
+                            <constraint firstItem="hEo-Gh-YfZ" firstAttribute="top" secondItem="J2N-jy-Qie" secondAttribute="bottom" constant="5" id="0U2-t2-EER"/>
+                            <constraint firstItem="J2N-jy-Qie" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JW7-80-pL8"/>
                             <constraint firstItem="hEo-Gh-YfZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZGT-nf-J8N"/>
                             <constraint firstAttribute="trailing" secondItem="hEo-Gh-YfZ" secondAttribute="trailing" id="ioT-Mj-7Nz"/>
                             <constraint firstAttribute="bottom" secondItem="hEo-Gh-YfZ" secondAttribute="bottom" id="mzR-Q1-mXg"/>
+                            <constraint firstItem="J2N-jy-Qie" firstAttribute="top" secondItem="Pu0-yG-HOt" secondAttribute="top" constant="5" id="uvQ-47-5fA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pu0-yG-HOt"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="hEo-Gh-YfZ" id="BJN-K0-OJV"/>
                         <outlet property="flowLayout" destination="tw3-by-YGn" id="3xW-6v-lbJ"/>
+                        <outlet property="selectSkinLabel" destination="J2N-jy-Qie" id="rM8-07-Cde"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1128" y="433"/>
+            <point key="canvasLocation" x="1127.536231884058" y="432.58928571428572"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I2k-ni-hhG">
