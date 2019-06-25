@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Extension to UIColor to allow RGB
 extension UIColor {
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
@@ -43,22 +44,15 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        dim = collectionView.bounds.width/12
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        //no space between collectionview cells
+        //Space between collectionview cells
         flowLayout.minimumLineSpacing = 20
         flowLayout.minimumInteritemSpacing = 20
         
-        let screenSize = UIScreen.main.bounds
-        
-        selectLevelFontSize = (screenSize.width/8)
-        selectLevelLabel.font = UIFont(name: selectLevelLabel.font.fontName, size: selectLevelFontSize)
-        
-        
-        
-        // Do any additional setup after loading the view.
+        //Sets size for "Select Level" label
+        selectLevelLabel.font = UIFont(name: selectLevelLabel.font.fontName, size: (UIScreen.main.bounds.width/8))
     }
     
     
@@ -69,21 +63,19 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LevelCell", for: indexPath) as! LevelSelectCollectionViewCell
         
-        let x = defaults.object(forKey:"unlocked") as? Int ?? 0
-        
         cell.levelLabel.text = String(mazeLevel.mazes[indexPath.row].number)
         cell.levelLabel.adjustsFontSizeToFitWidth = true
-        
-        levelFontSize = (collectionView.bounds.width/3 - 20)/3 + 5
-        cell.levelLabel.font = UIFont(name: cell.levelLabel.font.fontName, size: levelFontSize)
+        cell.levelLabel.font = UIFont(name: cell.levelLabel.font.fontName, size: ((collectionView.bounds.width/3 - 20)/3 + 5))
         
         cell.layer.backgroundColor = UIColor(hexString: "#FBC531").cgColor
         cell.layer.borderColor = UIColor.white.cgColor
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 20;
         
+        //x tracks user's unlocked levels
+        let x = defaults.object(forKey:"unlocked") as? Int ?? 0
+        //Makes locked levels gray
         if x+1 < mazeLevel.mazes[indexPath.row].number{
-            print(x)
             cell.layer.borderColor = UIColor.black.cgColor
             cell.layer.backgroundColor = UIColor.gray.cgColor
         }
@@ -91,8 +83,6 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let x = defaults.object(forKey:"unlocked") as? Int ?? 0
-        print("Unlocked Level: \(x)")
         collectionView.reloadData()
     }
     
@@ -101,9 +91,8 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //collectionViewCell width = 1/3 the screen
+        //Sets size of each collection view cell
         let yourWidth = collectionView.bounds.width/3 - 20
-        //collectionViewCell is always square
         let yourHeight = yourWidth
         
         return CGSize(width: yourWidth, height: yourHeight)
@@ -112,17 +101,16 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(MainMenuViewController.skins[defaults.object(forKey:"skin") as? Int ?? 0].name)
         selectedLevel = mazeLevel.mazes[indexPath.row]
+        //Only segue if level is unlocked
         if selectedLevel.number - 1 <= defaults.object(forKey:"unlocked") as? Int ?? 0 {
             performSegue(withIdentifier: "LevelToGame", sender: self)
-        } else{
-            print("Not yet unlocked")
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "LevelToGame")
         {
+            //Pushes data through the segue
             let gameVC = segue.destination as! GameViewController
             gameVC.currentLevel = selectedLevel
             gameVC.allMaps = mazeLevel

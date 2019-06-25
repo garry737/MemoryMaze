@@ -26,13 +26,9 @@ class CustomizationViewController: UIViewController, UICollectionViewDataSource,
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         
-        let screenSize = UIScreen.main.bounds
-        selectSkinLabel.font = UIFont(name: selectSkinLabel.font.fontName, size: (screenSize.width/8))
-        
-        
+        selectSkinLabel.font = UIFont(name: selectSkinLabel.font.fontName, size: (UIScreen.main.bounds.width/8))
     }
 
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return MainMenuViewController.skins.count
     }
@@ -40,34 +36,28 @@ class CustomizationViewController: UIViewController, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customizationCell", for: indexPath) as! CustomizationCollectionViewCell
         
-        let defaults = UserDefaults.standard
-        
+        //Fills cell with skin image and name
         cell.skinLabel.text = MainMenuViewController.skins[indexPath.row].name
         cell.skinLabel.textAlignment = .center
-        
-        //resizes skinLabel font size if it doesnt fit in label
         cell.skinLabel.adjustsFontSizeToFitWidth = true
         cell.skinImage.image = MainMenuViewController.skins[indexPath.row].image
         cell.skinImage.layer.borderWidth = 2.5
         cell.skinImage.layer.borderColor = UIColor.black.cgColor
         
         //draws the selected border if skin is the selected skin
-        cell.layer.borderWidth = indexPath.row == defaults.object(forKey:"skin") as? Int ?? 0 ? 5.0 : 0.5
-        cell.layer.borderColor = indexPath.row == defaults.object(forKey:"skin") as? Int ?? 0 ? UIColor.yellow.cgColor : UIColor.black.cgColor
+        cell.layer.borderWidth = indexPath.row == UserDefaults.standard.object(forKey:"skin") as? Int ?? 0 ? 5.0 : 0.5
+        cell.layer.borderColor = indexPath.row == UserDefaults.standard.object(forKey:"skin") as? Int ?? 0 ? UIColor.yellow.cgColor : UIColor.black.cgColor
         
         return cell
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //collectionViewCell width = hald the screen
+        //collectionViewCell width = half the screen and always square
         let yourWidth = collectionView.bounds.width/2
-        //collectionViewCell is always square
         let yourHeight = yourWidth
         
         return CGSize(width: yourWidth, height: yourHeight)
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.zero

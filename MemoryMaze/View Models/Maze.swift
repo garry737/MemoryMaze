@@ -37,6 +37,7 @@ class Maze : Equatable{
         completed = true
     }
     
+    //Function to check if mazes are equal
     static func == (lhs: Maze, rhs: Maze) -> Bool {
         if (lhs.walls.count != rhs.walls.count) || (lhs.start != rhs.start && lhs.end != rhs.end ){
             return false

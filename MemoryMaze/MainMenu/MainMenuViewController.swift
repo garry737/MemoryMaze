@@ -16,6 +16,7 @@ class MainMenuViewController: UIViewController {
     @IBOutlet var changeSkinButton: UIButton!
     
     var firstCheck : Bool = true
+    //Initializing the Mazes
     var maps : Maps = Maps(mazes: [
         Maze(number: 1, start: (0,5), end: (9,5), walls:[(0,4),(1,4),(2,4),(3,4),(4,4),(5,4),(6,4),(7,4),(8,4),(9,4),(0,6),(1,6),(2,6),(3,6),(4,6),(5,6),(6,6),(7,6),(8,6),(9,6)]),
         Maze(number: 2, start: (4,0), end: (9,5), walls: [(3,0),(5,0),(3,1),(5,1),(3,2),(5,2),(3,3),(5,3),(3,4),(5,4),(6,4),(7,4),(8,4),(9,4),(3,5),(3,6),(4,6),(5,6),(6,6),(7,6),(8,6),(9,6)]),
@@ -44,30 +45,25 @@ class MainMenuViewController: UIViewController {
         Maze(number: 0, start: (9,0), end: (3,4), walls: [])
         ])
     
-    //initialize the skins
+    //Initializes the skins
     static var skins : [Skin] = [Skin(name: "Blue"),Skin(name: "Green"),Skin(name: "Red"),Skin(name: "Pink"),Skin(name: "Purple"),Skin(name: "Brown"),Skin(name: "Grey"),Skin(name: "White")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let screenSize = UIScreen.main.bounds
-        let screenHeight = screenSize.height
-//        let screenWidth = screenSize.width
         
+        let screenHeight = UIScreen.main.bounds.height
         changeSkinBottomConstraint.constant = screenHeight * 0.1
         self.firstLaunch()
-        
-        
-        
-        // Do any additional setup after loading the view.
     }
     
+    //Checks if this is the first time user opened the app
     func firstLaunch()->Void{
         let defaults = UserDefaults.standard
         if let _ = defaults.string(forKey: "firstLaunch"){
             print("App already launched")
             return
         }else{
+            //Set initial UserDefault values
             defaults.set(false, forKey: "firstLaunch")
             defaults.set(0, forKey: "unlocked")
             defaults.set(0, forKey: "skin")
@@ -76,15 +72,6 @@ class MainMenuViewController: UIViewController {
         }
     }
     
-//    static func initialMapGen() -> Maps{
-//        let defaults = UserDefaults.standard
-//        if let _ = defaults.string(forKey: "firstLaunch"){
-//            let firstMap = Maze(number: 1, start: (9,9), end: (4,9), walls: [(2,0),(0,1),(2,1),(0,2),(2,2),(0,3),(2,3),(0,4),(2,4),(0,5),(2,5),(0,6),(2,6),(3,6),(4,6),(5,6),(0,7),(5,7),(0,8),(1,8),(2,8),(3,8),(5,8),(3,9),(5,9),(7,7)])
-//            var maps = Maps(mazes: [firstMap])
-//        }
-//
-//        return maps
-//    }
     
     @IBAction func selectLevelButton(_ sender: Any) {
         performSegue(withIdentifier: "MainToLevel", sender: self)
@@ -97,16 +84,5 @@ class MainMenuViewController: UIViewController {
             levelVC?.mazeLevel = maps
         }
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
