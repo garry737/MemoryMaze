@@ -87,10 +87,6 @@ class LevelSelectViewController: UIViewController, UICollectionViewDataSource, U
             cell.layer.borderColor = UIColor.black.cgColor
             cell.layer.backgroundColor = UIColor.gray.cgColor
         }
-        
-        
-        
-        
         return cell
     }
     

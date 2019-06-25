@@ -20,6 +20,8 @@ class GameViewController: UIViewController {
     @IBOutlet var rightButton: UIButton!
     @IBOutlet var leftButton: UIButton!
     @IBOutlet var downButton: UIButton!
+    @IBOutlet var warningLabel: UILabel!
+    @IBOutlet var waitView: UILabel!
     
     var blockImage : UIImageView = UIImageView(image: UIImage(named: "Red"))
     var maze : [UIImageView] = []
@@ -28,8 +30,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gameLevelLabel.text = "Level \(currentLevel.number)"
+        gameLevelLabel.font = UIFont(name: gameLevelLabel.font.fontName, size: UIScreen.main.bounds.width/11)
         
         mazeScreen.layoutIfNeeded()
+        
         
         self.drawMaze()
         self.drawEndPoints()
@@ -70,7 +74,8 @@ class GameViewController: UIViewController {
         downButton.contentMode = .center
         downButton.imageView?.contentMode = .scaleAspectFit
         
-        
+        warningLabel.adjustsFontSizeToFitWidth = true
+        warningLabel.isHidden = true
         
     }
     
@@ -100,6 +105,7 @@ class GameViewController: UIViewController {
         
         checkCollision(x: Double(round(blockImage.frame.origin.x/blockImage.frame.width)), y: Double(round(blockImage.frame.origin.y/blockImage.frame.width)))
 //        print("blockImage frame height = \(blockImage.frame.height)")
+        self.showWarning()
     }
     
     @IBAction func rightButtonPressed(_ sender: Any) {
@@ -123,6 +129,9 @@ class GameViewController: UIViewController {
         path += "),"
 //        print("mazeScreen frame width = \(mazeScreen.frame.width)")
 //        print("blockImage frame width = \(blockImage.frame.height)")
+        
+        self.showWarning()
+        
     }
     
     @IBAction func downButtonPressed(_ sender: Any) {
@@ -145,6 +154,8 @@ class GameViewController: UIViewController {
         path += ","
         path += y
         path += "),"
+        
+        self.showWarning()
     }
     
     @IBAction func leftButtonPressed(_ sender: Any) {
@@ -166,6 +177,8 @@ class GameViewController: UIViewController {
         path += ","
         path += y
         path += "),"
+        
+        self.showWarning()
     }
     
     func drawMaze(){
@@ -281,7 +294,23 @@ class GameViewController: UIViewController {
                 walls.isHidden = true
                 self.mazeScreen.addSubview(walls)
             }
+            
+            
             self.moveFlag = true
+        }
+    }
+    
+    func showWarning(){
+        if !moveFlag {
+            warningLabel.isHidden = false
+            
+            UIView.animate(withDuration: 2, animations: {
+                self.warningLabel.alpha = 0
+            })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.warningLabel.isHidden = true
+                self.warningLabel.alpha = 1
+            }
         }
     }
 }
