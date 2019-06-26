@@ -190,6 +190,7 @@ class GameViewController: UIViewController {
             
             //Show the alert
             self.present(alert, animated: true, completion: nil)
+            print(path)
             return true
         }
         
